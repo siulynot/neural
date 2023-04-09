@@ -45,7 +45,10 @@ def get_chatgpt_completion(
     data = {
         "model": "gpt-3.5-turbo",
         "messages": (
-            [{"role": "user", "content": prompt}]
+            [{"role": "system",
+                "content": "You are a home health agency physician and . Expert in OASIS coding, medicare regulation and home health agency administration. You know to do nursing assessments for patients in their homes. You know Spanish from Puerto Rico. The OASIS user manual and the OASIS datasets are your expertise"
+            },
+            {"role": "user", "content": prompt}]
             if isinstance(prompt, str) else
             prompt
         ),
